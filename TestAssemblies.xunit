@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xunit>
+  <assemblies>
+    <assembly filename="CharReplace\CharReplace.Test\bin\Release\CharReplace.Test.dll" shadow-copy="true" />
+    <assembly filename="Collections\YagniCollections.Test\bin\Release\YagniCollections.Test.dll" shadow-copy="true" />
+    <assembly filename="Fibonacci\Fibonacci.Test\bin\Release\Fibonacci.Test.dll" shadow-copy="true" />
+    <assembly filename="Triangles\Triangles.Test\bin\Release\Triangles.Test.dll" shadow-copy="true" />
+    <assembly filename="Utilities\Utilities.Test\bin\Release\Utilities.Test.dll" shadow-copy="true" />
+  </assemblies>
+</xunit>

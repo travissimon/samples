@@ -1,0 +1,233 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+	x:Class="Glossary.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+	xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+	xmlns:dataControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"
+	xmlns:local="clr-namespace:Glossary"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+	<UserControl.Resources>
+		
+		<local:BoolToVisibilityConverter x:Key="VisibilityConverter" />
+		
+		<Storyboard x:Name="SwivelToBackStoryboard">
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderBack" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="00:00:00.2500000">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderFront" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00.0000000">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="00:00:00.2500000">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderFront" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="-90">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.500000" Value="-180">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderBack" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="180">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="90">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+
+		<Storyboard x:Name="SwivelToFrontStoryboard">
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderBack" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00.0000000">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="00:00:00.2500000">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderFront" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00.0000000">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Collapsed</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+				<DiscreteObjectKeyFrame KeyTime="00:00:00.2500000">
+					<DiscreteObjectKeyFrame.Value>
+						<Visibility>Visible</Visibility>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderFront" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<EasingDoubleKeyFrame KeyTime="00:00:00" Value="-180">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="-90">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ContentBorderBack" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+				<EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="90">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseIn"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="180">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<CubicEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	
+	<Grid Style="{StaticResource LayoutGridStyle}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<TextBlock Grid.Row="0" Style="{StaticResource ApplicationNameStyle}">Glossary Application</TextBlock>
+		
+		<HyperlinkButton Grid.Row="1" Content="Create New Entry" Style="{StaticResource NewEntryStyle}" Click="HyperlinkButton_Click" />
+
+		<TextBlock Text="{Binding OutputStr, Mode=TwoWay}" Grid.Row="0" />
+				   
+		<Border Grid.Row="2" x:Name="ContentBorderFront" Style="{StaticResource ContentBorderFront}">
+			<Border.Projection>
+				<PlaneProjection/>
+			</Border.Projection>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+
+				<TextBlock Text="Terms" Grid.Row="0" Style="{StaticResource HeaderTextStyle}" />
+
+				<ScrollViewer Grid.Row="1" Height="275" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto">
+					<StackPanel Orientation="Vertical">
+						<sdk:DataGrid CanUserReorderColumns="False" CanUserResizeColumns="False" ItemsSource="{Binding Entries}" AutoGenerateColumns="False" Style="{StaticResource DefaultDataGridStyle}">
+							<sdk:DataGrid.Columns>
+								<sdk:DataGridTextColumn Header="Term" Binding="{Binding Term}" Width="175" />
+								<sdk:DataGridTemplateColumn Header="Definition" Width="600">
+									<sdk:DataGridTemplateColumn.CellTemplate>
+										<DataTemplate>
+											<TextBlock Text="{Binding Definition, Mode=TwoWay}" TextWrapping="Wrap" />
+										</DataTemplate>
+									</sdk:DataGridTemplateColumn.CellTemplate>
+								</sdk:DataGridTemplateColumn>
+								<sdk:DataGridTemplateColumn Header="" Width="75">
+									<sdk:DataGridTemplateColumn.CellTemplate>
+										<DataTemplate>
+											<Button Content="Edit" Style="{StaticResource DefaultButtonStyle}" DataContext="{Binding}" Click="EditButton_Click" />
+										</DataTemplate>
+									</sdk:DataGridTemplateColumn.CellTemplate>
+								</sdk:DataGridTemplateColumn>
+								<sdk:DataGridTemplateColumn Header="" Width="75">
+									<sdk:DataGridTemplateColumn.CellTemplate>
+										<DataTemplate>
+											<Button Content="Delete" Style="{StaticResource DefaultButtonStyle}" DataContext="{Binding}" Click="DeleteButton_Click" />
+										</DataTemplate>
+									</sdk:DataGridTemplateColumn.CellTemplate>
+								</sdk:DataGridTemplateColumn>
+							</sdk:DataGrid.Columns>
+						</sdk:DataGrid>
+						<sdk:DataPager Margin="10" PageSize="5" Source="{Binding Entries}" DisplayMode="FirstLastPreviousNextNumeric" Style="{StaticResource DefaultDataPagerStyle}" />
+					</StackPanel>
+				</ScrollViewer>
+			</Grid>
+		</Border>
+
+		<Border Grid.Row="2" x:Name="ContentBorderBack" Style="{StaticResource ContentBorderBack}">
+			<Border.Projection>
+				<PlaneProjection/>
+			</Border.Projection>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+
+				<TextBlock Text="Edit Entry" Grid.Row="0" Style="{StaticResource HeaderTextStyle}" />
+
+				<ListBox Grid.Row="1" ItemsSource="{Binding ValidationErrors}" Visibility="{Binding CurrentEntryHasValidationErrors, Converter={StaticResource VisibilityConverter}}" DisplayMemberPath="ErrorMessage" BorderBrush="Red" BorderThickness="1" Foreground="Red">
+				</ListBox>
+
+				<TextBlock Text="Term" Grid.Row="2" Style="{StaticResource ContentTextStyle}" />
+				<TextBox Grid.Row="3" Text="{Binding CurrentEntry.Term, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource DefaultTextBoxStyle}" />
+
+				<TextBlock Grid.Row="4" Text="Definition" Style="{StaticResource ContentTextStyle}" />
+				<TextBox Grid.Row="5" Text="{Binding CurrentEntry.Definition, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" Style="{StaticResource DefaultTextBoxStyle}" />
+
+				<StackPanel Orientation="Horizontal" Grid.Row="7">
+					<Button Content="Save" Style="{StaticResource DefaultButtonStyle}" Width="75" Click="Save_Click" />
+					<Button Content="Cancel" Style="{StaticResource DefaultButtonStyle}" Width="75" Click="Cancel_Click" />
+				</StackPanel>
+			</Grid>
+		</Border>
+
+	</Grid>
+</UserControl>
