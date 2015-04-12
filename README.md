@@ -29,9 +29,11 @@ Runs the test cases. Useful if you don't have XUnit installed.
 Triangles
 ---------
 
-This was a fun little question: Given the lengths of the three sides of a triangle, determine if the triangle is equilateral, isoscolese or scalene.
+- Given the lengths of the three sides of a triangle, determine if the triangle is equilateral, isoscolese or scalene.
 
 Utilities
 ---------
 
-Write a utility to reverse the words in a sentance. I went a little overboard here and coded in certain assumptions, such as 'don't include the trailing punctuation'. I probably wouldn't have bothered, except that I already had the string parser class from something else.
+- Write a utility to reverse the words in a sentance.
+
+I went a little overboard here and coded in certain assumptions, such as 'don't include the trailing punctuation'. I probably wouldn't have bothered, except that I already had the string parser class from something else.
