@@ -34,6 +34,6 @@ Triangles
 Utilities
 ---------
 
-- Write a utility to reverse the words in a sentance.
+- Write a utility to reverse the words in a sentence.
 
 I went a little overboard here and coded in certain assumptions, such as 'don't include the trailing punctuation'. I probably wouldn't have bothered, except that I already had the string parser class from something else.
